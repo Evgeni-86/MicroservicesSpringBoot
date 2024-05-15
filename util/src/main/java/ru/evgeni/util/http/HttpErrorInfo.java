@@ -2,13 +2,8 @@ package ru.evgeni.util.http;
 
 import java.time.ZonedDateTime;
 
-import lombok.Getter;
-import lombok.Setter;
 import org.springframework.http.HttpStatus;
 
-
-@Getter
-@Setter
 public class HttpErrorInfo {
     private final ZonedDateTime timestamp;
     private final String path;
@@ -27,5 +22,25 @@ public class HttpErrorInfo {
         this.httpStatus = httpStatus;
         this.path = path;
         this.message = message;
+    }
+
+    public ZonedDateTime getTimestamp() {
+        return timestamp;
+    }
+
+    public String getPath() {
+        return path;
+    }
+
+    public int getStatus() {
+        return httpStatus.value();
+    }
+
+    public String getError() {
+        return httpStatus.getReasonPhrase();
+    }
+
+    public String getMessage() {
+        return message;
     }
 }
