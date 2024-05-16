@@ -3,7 +3,6 @@ package ru.evgeni.api.core.recommendation;
 import lombok.Getter;
 import lombok.Setter;
 
-
 @Setter
 @Getter
 public class Recommendation {

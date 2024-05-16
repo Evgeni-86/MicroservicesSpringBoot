@@ -3,7 +3,6 @@ package ru.evgeni.api.core.product;
 import lombok.Getter;
 import lombok.Setter;
 
-
 @Getter
 @Setter
 public class Product {
