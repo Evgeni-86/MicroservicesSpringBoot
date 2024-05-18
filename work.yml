@@ -1,0 +1,37 @@
+server.port: 7000
+server.error.include-message: always
+
+app:
+  payment-service:
+    host: localhost
+    port: 7001
+
+spring:
+  cloud:
+    stream:
+      defaultBinder: kafka
+      bindings:
+        payments-out-0:
+          destination: payments
+          content-type: application/json
+
+spring.cloud.stream.kafka.binder:
+  brokers: localhost:9092
+  replication-factor: 1
+
+
+logging:
+  level:
+    root: INFO
+    se.magnus: DEBUG
+
+management.endpoint.health.show-details: "ALWAYS"
+management.endpoints.web.exposure.include: "*"
+
+---
+#spring.config.activate.on-profile: docker
+#server.port: 8080
+#
+#spring.cloud.stream.kafka.binder:
+#  brokers: kafka:9092
+#  replication-factor: 1
